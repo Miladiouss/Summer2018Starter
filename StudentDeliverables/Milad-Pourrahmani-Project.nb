@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[   1031692,      18177]
-NotebookOptionsPosition[   1020862,      17976]
-NotebookOutlinePosition[   1026126,      18098]
-CellTagsIndexPosition[   1025901,      18089]
+NotebookDataLength[   1061511,      19034]
+NotebookOptionsPosition[   1050655,      18831]
+NotebookOutlinePosition[   1055919,      18953]
+CellTagsIndexPosition[   1055694,      18944]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -12903,13 +12903,13 @@ Cell[BoxData[
      Association[
      "a8" -> "\[BlackRook]", "b8" -> "\[BlackKnight]", "c8" -> 
       "\[BlackBishop]", "d8" -> "\[BlackQueen]", "e8" -> "\[BlackKing]", "f8" -> 
-      "\[BlackBishop]", "g8" -> "\[EmptySquare]", "h8" -> "\[BlackRook]", 
+      "\[BlackBishop]", "g8" -> "\[BlackKnight]", "h8" -> "\[BlackRook]", 
       "a7" -> "\[BlackPawn]", "b7" -> "\[BlackPawn]", "c7" -> "\[BlackPawn]", 
       "d7" -> "\[BlackPawn]", "e7" -> "\[BlackPawn]", "f7" -> 
       "\[EmptySquare]", "g7" -> "\[BlackPawn]", "h7" -> "\[BlackPawn]", "a6" -> 
       "\[EmptySquare]", "b6" -> "\[EmptySquare]", "c6" -> "\[EmptySquare]", 
       "d6" -> "\[EmptySquare]", "e6" -> "\[EmptySquare]", "f6" -> 
-      "\[BlackKnight]", "g6" -> "\[EmptySquare]", "h6" -> "\[EmptySquare]", 
+      "\[EmptySquare]", "g6" -> "\[EmptySquare]", "h6" -> "\[EmptySquare]", 
       "a5" -> "\[EmptySquare]", "b5" -> "\[EmptySquare]", "c5" -> 
       "\[EmptySquare]", "d5" -> "\[EmptySquare]", "e5" -> "\[EmptySquare]", 
       "f5" -> "\[BlackPawn]", "g5" -> "\[EmptySquare]", "h5" -> 
@@ -17875,10 +17875,870 @@ Cell["Detailed Project Notes", "TemplateSectionHeaders",
  CellTags->
   "ProjectNotes",ExpressionUUID->"d0702cda-4649-4987-a5e2-607be4aa4f6e"],
 
+Cell[CellGroupData[{
+
 Cell["Main Results in Detail", "Subsubsection",
  CellChangeTimes->{
   3.7361820729365396`*^9},ExpressionUUID->"c1b785be-a60a-40fe-b1f1-\
 2d83590b38cd"],
+
+Cell[TextData[{
+ "A board/card game can be represented using an association where coordinates \
+in the game are associated to states.\nSpecifically for chess, we can write:\n\
+\n",
+ Cell[BoxData[
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\<\"a8\"\>", "\[Rule]", "\<\"\[BlackRook]\"\>"}], ",", 
+    RowBox[{"\<\"b8\"\>", "\[Rule]", "\<\"\[BlackKnight]\"\>"}], ",", 
+    RowBox[{"\<\"c8\"\>", "\[Rule]", "\<\"\[BlackBishop]\"\>"}], ",", 
+    RowBox[{"\<\"d8\"\>", "\[Rule]", "\<\"\[BlackQueen]\"\>"}], ",", 
+    RowBox[{"\<\"e8\"\>", "\[Rule]", "\<\"\[BlackKing]\"\>"}], ",", 
+    RowBox[{"\<\"f8\"\>", "\[Rule]", "\<\"\[BlackBishop]\"\>"}], ",", 
+    RowBox[{"\<\"g8\"\>", "\[Rule]", "\<\"\[BlackKnight]\"\>"}], ",", 
+    RowBox[{"\<\"h8\"\>", "\[Rule]", "\<\"\[BlackRook]\"\>"}], ",", 
+    RowBox[{"\<\"a7\"\>", "\[Rule]", "\<\"\[BlackPawn]\"\>"}], ",", 
+    RowBox[{"\<\"b7\"\>", "\[Rule]", "\<\"\[BlackPawn]\"\>"}], ",", 
+    RowBox[{"\<\"c7\"\>", "\[Rule]", "\<\"\[BlackPawn]\"\>"}], ",", 
+    RowBox[{"\<\"d7\"\>", "\[Rule]", "\<\"\[BlackPawn]\"\>"}], ",", 
+    RowBox[{"\<\"e7\"\>", "\[Rule]", "\<\"\[BlackPawn]\"\>"}], ",", 
+    RowBox[{"\<\"f7\"\>", "\[Rule]", "\<\"\[BlackPawn]\"\>"}], ",", 
+    RowBox[{"\<\"g7\"\>", "\[Rule]", "\<\"\[BlackPawn]\"\>"}], ",", 
+    RowBox[{"\<\"h7\"\>", "\[Rule]", "\<\"\[BlackPawn]\"\>"}], ",", 
+    RowBox[{"\<\"a6\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"b6\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"c6\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"d6\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"e6\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"f6\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"g6\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"h6\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"a5\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"b5\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"c5\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"d5\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"e5\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"f5\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"g5\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"h5\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"a4\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"b4\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"c4\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"d4\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"e4\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"f4\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"g4\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"h4\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"a3\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"b3\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"c3\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"d3\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"e3\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"f3\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"g3\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"h3\"\>", "\[Rule]", "\<\"\[EmptySquare]\"\>"}], ",", 
+    RowBox[{"\<\"a2\"\>", "\[Rule]", "\<\"\[WhitePawn]\"\>"}], ",", 
+    RowBox[{"\<\"b2\"\>", "\[Rule]", "\<\"\[WhitePawn]\"\>"}], ",", 
+    RowBox[{"\<\"c2\"\>", "\[Rule]", "\<\"\[WhitePawn]\"\>"}], ",", 
+    RowBox[{"\<\"d2\"\>", "\[Rule]", "\<\"\[WhitePawn]\"\>"}], ",", 
+    RowBox[{"\<\"e2\"\>", "\[Rule]", "\<\"\[WhitePawn]\"\>"}], ",", 
+    RowBox[{"\<\"f2\"\>", "\[Rule]", "\<\"\[WhitePawn]\"\>"}], ",", 
+    RowBox[{"\<\"g2\"\>", "\[Rule]", "\<\"\[WhitePawn]\"\>"}], ",", 
+    RowBox[{"\<\"h2\"\>", "\[Rule]", "\<\"\[WhitePawn]\"\>"}], ",", 
+    RowBox[{"\<\"a1\"\>", "\[Rule]", "\<\"\[WhiteRook]\"\>"}], ",", 
+    RowBox[{"\<\"b1\"\>", "\[Rule]", "\<\"\[WhiteKnight]\"\>"}], ",", 
+    RowBox[{"\<\"c1\"\>", "\[Rule]", "\<\"\[WhiteBishop]\"\>"}], ",", 
+    RowBox[{"\<\"d1\"\>", "\[Rule]", "\<\"\[WhiteQueen]\"\>"}], ",", 
+    RowBox[{"\<\"e1\"\>", "\[Rule]", "\<\"\[WhiteKing]\"\>"}], ",", 
+    RowBox[{"\<\"f1\"\>", "\[Rule]", "\<\"\[WhiteBishop]\"\>"}], ",", 
+    RowBox[{"\<\"g1\"\>", "\[Rule]", "\<\"\[WhiteKnight]\"\>"}], ",", 
+    RowBox[{"\<\"h1\"\>", "\[Rule]", "\<\"\[WhiteRook]\"\>"}], ",", 
+    RowBox[{"\<\"\[WhiteRook]\[WhiteKing]\"\>", "\[Rule]", "True"}], ",", 
+    RowBox[{"\<\"\[WhiteKing]\[WhiteRook]\"\>", "\[Rule]", "True"}], ",", 
+    RowBox[{"\<\"\[BlackRook]\[BlackKing]\"\>", "\[Rule]", "True"}], ",", 
+    RowBox[{"\<\"\[BlackKing]\[BlackRook]\"\>", "\[Rule]", "True"}], ",", 
+    RowBox[{"\<\"EnPassant\"\>", "\[Rule]", "None"}], ",", 
+    RowBox[{"\<\"WhiteCemetery\"\>", "\[Rule]", 
+     RowBox[{"{", "}"}]}], ",", 
+    RowBox[{"\<\"BlackCemetery\"\>", "\[Rule]", 
+     RowBox[{"{", "}"}]}], ",", 
+    RowBox[{"\<\"Turn\"\>", "\[Rule]", "\<\"White\"\>"}], ",", 
+    RowBox[{"\<\"Result\"\>", "\[Rule]", "None"}]}], "\[IndentingNewLine]", 
+   "|>"}]], "Output",
+  GeneratedCell->False,
+  CellAutoOverwrite->False,
+  CellChangeTimes->{3.740282979528657*^9},ExpressionUUID->
+  "20d63f4a-6144-4334-86cf-4f532e3208f2"],
+ "\n\nIn order to avoid referring to previous states of the game, auxiliary \
+(as in not part of the board) has been added. For instance, if a pawn may be \
+captured via En passant, it\[CloseCurlyQuote]s coordinate will be mentioned. \
+As another example, if the rooks or the king move, the opportunity of \
+castling will be revoked. White and black cemeteries are there to keep track \
+of captured pieces. Turn switches between White and Black after each move. \
+The game ends when the Result is set to \[OpenCurlyDoubleQuote]1/2-1/2\
+\[CloseCurlyDoubleQuote], \[OpenCurlyDoubleQuote]1-0\[CloseCurlyDoubleQuote], \
+or \[OpenCurlyDoubleQuote]0-1\[CloseCurlyDoubleQuote].\n\nA move is a list of \
+actions. For instance, the move of a white pawn at a7 capturing a rook at b8 \
+and becoming a queen may be represented as ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"a7", " ", "\[Rule]", " ", "\[EmptySquare]"}], ",", " ", 
+     RowBox[{"\[BlackRook]", "\[Rule]", " ", "BlackCemetery"}], ",", "  ", 
+     RowBox[{"b8", " ", "\[Rule]", " ", "\[WhiteQueen]"}]}], "}"}], 
+   TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "f55cfd36-97dd-4e2f-b0d0-f6d1b17392ae"],
+ ". \n\nIn order to explore the game space, the rules of the game may be \
+translated to functions which intake a state of a game and output a list of \
+all possible moves.\n\nTo construct these function for chess, I have \
+expressed the rules mathematically:"
+}], "TemplateEditableContent",
+ ShowCellBracket->True,
+ CellMargins->{{65, 20}, {10, 10}},
+ CellChangeTimes->{{3.7402831435640297`*^9, 3.740283257287465*^9}, {
+  3.740283291443789*^9, 3.740283893508915*^9}, {3.7402839287443943`*^9, 
+  3.7402840485871572`*^9}, {3.740284090697322*^9, 3.740284350937819*^9}, {
+  3.740286976636589*^9, 
+  3.740286977679844*^9}},ExpressionUUID->"4de88359-81f4-4572-85f7-\
+f3c9cfa79e27"],
+
+Cell[TextData[{
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox[
+     SubscriptBox["pos", "1"],
+     FontSlant->"Italic"], "=", " ", 
+    RowBox[{"{", 
+     RowBox[{"rank", ",", " ", "file"}], "}"}]}], TraditionalForm]],
+  ExpressionUUID->"13209f56-ecf4-499c-a595-d99af545920e"],
+ " represents the matrix coordinate in current player\[CloseCurlyQuote]s \
+frame of reference\nWhen a piece legally moves to an occupied square by the \
+opponent, the opponents piece is captures.\nCaptured pieces go to their \
+corresponding cemetery.\n\[Dagger] is a hyperstate of a square that is under \
+attack by opponents pieces. That is, in the current state, the opponent has a \
+move that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[ForAll]", 
+     RowBox[{"{", 
+      RowBox[{
+      "\[WhiteKing]", ",", " ", "\[WhiteQueen]", ",", " ", "\[WhiteRook]", 
+       ",", " ", "\[WhiteBishop]", ",", " ", "\[WhiteKnight]", ",", " ", 
+       "\[WhitePawn]"}], "}"}]}], " ", "\[Rule]", " ", "WhiteCemetery"}], 
+   TraditionalForm]],ExpressionUUID->"d06e9c9f-7c0c-42ba-9d05-b5aca37d60ef"],
+ ".\nIf ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "\[WhiteKing]"], ")"}], " ", "\[Equal]", " ", 
+    "\[Dagger]"}], TraditionalForm]],ExpressionUUID->
+  "a75d1a49-525a-4a0a-83a1-a60e834c9e0c"],
+ " with no legal moves, the result is set to \[OpenCurlyDoubleQuote]0-1\
+\[CloseCurlyDoubleQuote] and game ends.\nIf ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "\[WhiteKing]"], ")"}], " ", "\[NotEqual]", " ", 
+    "\[Dagger]"}], TraditionalForm]],ExpressionUUID->
+  "8e9eef98-f1a8-4e1a-bdd3-73ba214a7fdc"],
+ " with no legal moves, the game ends as \[OpenCurlyDoubleQuote]1/2-1/2\
+\[CloseCurlyDoubleQuote].\n\n\nA. \[EmptySquare]\n\t1. No possible moves from \
+it.\nB. \[WhiteKing] KingRestrictoins\n\t1. Eliminate all moves that result \
+in ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "\[WhiteKing]"], ")"}], " ", "\[Equal]", " ", 
+    "\[Dagger]"}], TraditionalForm]],ExpressionUUID->
+  "a2585f85-b31d-418a-a338-d2748c59e811"],
+ ".\nC. \[WhitePawn] PawnMoves\n\t1. May move to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     StyleBox["pos",
+      FontSlant->"Italic"], "2"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    StyleBox["=",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    RowBox[{
+     StyleBox[
+      SubscriptBox[
+       StyleBox["pos",
+        FontSlant->"Italic"], "1"],
+      FontSlant->"Italic"], " ", "+", " ", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "0"}], "}"}]}]}], TraditionalForm]],
+  ExpressionUUID->"075fe135-7c8e-4bb4-b436-74790570ef7f"],
+ " if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "2"], ")"}], "\[Equal]", " ", "\[EmptySquare]"}],
+    TraditionalForm]],ExpressionUUID->
+  "a0f60e4f-64e8-4e33-b11f-920d05719d06"],
+ " & ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     StyleBox["pos",
+      FontSlant->"Italic"], "2"], " ", "<", " ", 
+    RowBox[{"{", 
+     RowBox[{"8", ",", " ", "\[ForAll]"}], "}"}]}], TraditionalForm]],
+  ExpressionUUID->"aff9c4c7-8bd2-4e4f-b4e6-693034dcaef4"],
+ "\n\t2. May move to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     StyleBox["pos",
+      FontSlant->"Italic"], "2"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    StyleBox["=",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    RowBox[{
+     StyleBox[
+      SubscriptBox[
+       StyleBox["pos",
+        FontSlant->"Italic"], "1"],
+      FontSlant->"Italic"], " ", "+", " ", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", " ", 
+       RowBox[{"+", "2"}]}], "}"}]}]}], TraditionalForm]],ExpressionUUID->
+  "8ba59ea0-3357-452a-9e0e-71c5910f950a"],
+ " if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox[
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "1"],
+     FontSlant->"Italic"], " ", "\[Equal]", " ", 
+    RowBox[{"{", 
+     RowBox[{"\[ForAll]", 
+      RowBox[{",", " ", "2"}]}], "}"}]}], TraditionalForm]],ExpressionUUID->
+  "fc701c11-3fe5-404e-aa8a-e4f5f6db0acd"],
+ " & ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     RowBox[{
+      SubscriptBox[
+       StyleBox["pos",
+        FontSlant->"Italic"], "2"], " ", "+", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", 
+        RowBox[{"-", "1"}]}], "}"}]}], " ", ")"}], "\[Equal]", " ", 
+    "\[EmptySquare]"}], TraditionalForm]],ExpressionUUID->
+  "af675739-a3d9-4b0d-925e-76461d6ce620"],
+ " & ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "2"], ")"}], "\[Equal]", " ", "\[EmptySquare]"}],
+    TraditionalForm]],ExpressionUUID->
+  "aca917aa-3751-42c9-b3aa-e2d8f402267d"],
+ ".\n\t3. May move to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     StyleBox["pos",
+      FontSlant->"Italic"], "2"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    StyleBox["=",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    RowBox[{
+     StyleBox[
+      SubscriptBox[
+       StyleBox["pos",
+        FontSlant->"Italic"], "1"],
+      FontSlant->"Italic"], " ", "+", " ", 
+     RowBox[{"\[ForAll]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", " ", "0"}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\[PlusMinus]", "1"}], ",", " ", 
+          RowBox[{"+", "1"}]}], "}"}]}], "}"}]}]}]}], TraditionalForm]],
+  ExpressionUUID->"ae5eac62-0e05-447d-9ef4-4095f3ae6d17"],
+ " as \[ForAll]{\[WhiteQueen], \[WhiteRook], \[WhiteBishop], \[WhiteKnight]} \
+if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     StyleBox["pos",
+      FontSlant->"Italic"], "2"], " ", "\[Equal]", " ", 
+    RowBox[{"{", 
+     RowBox[{"8", ",", " ", "\[ForAll]"}], "}"}]}], TraditionalForm]],
+  ExpressionUUID->"d27ad625-9491-4f2a-b7af-46e77a5d1fe4"],
+ " & ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "2"], ")"}], "\[Equal]", " ", 
+    RowBox[{"{", 
+     RowBox[{
+     "\[BlackQueen]", ",", " ", "\[BlackRook]", ",", " ", "\[BlackBishop]", 
+      ",", " ", "\[BlackKnight]", ",", " ", "\[BlackPawn]", ",", " ", 
+      "\[EmptySquare]"}], "}"}]}], TraditionalForm]],ExpressionUUID->
+  "7d1ca894-65bd-4252-9bef-ed400944c0c5"],
+ ".\n\t5. May move to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     StyleBox[
+      RowBox[{"pos", " "}],
+      FontSlant->"Italic"], "2"], 
+    StyleBox["=",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    RowBox[{
+     StyleBox[
+      SubscriptBox[
+       StyleBox["pos",
+        FontSlant->"Italic"], "1"],
+      FontSlant->"Italic"], " ", "+", " ", 
+     RowBox[{"\[ForAll]", 
+      RowBox[{"{", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\[PlusMinus]", "1"}], ",", " ", 
+         RowBox[{"+", "1"}]}], "}"}], "}"}]}]}]}], TraditionalForm]],
+  ExpressionUUID->"6c7e275e-665f-4d10-895a-c2011c7e7bb4"],
+ " if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["S", 
+      RowBox[{"-", "1"}]], "(", 
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "2"], ")"}], " ", "\[Equal]", " ", 
+    "\[BlackPawn]"}], TraditionalForm]],ExpressionUUID->
+  "cba5770d-7ea1-4fbd-91d9-944172dc3712"],
+ " & ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     RowBox[{
+      SubscriptBox[
+       StyleBox["pos",
+        FontSlant->"Italic"], "2"], 
+      StyleBox[" ",
+       FontSlant->"Italic"], 
+      StyleBox["-",
+       FontSlant->"Italic"], 
+      StyleBox[" ",
+       FontSlant->"Italic"], 
+      StyleBox[
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", "2"}], "}"}],
+       FontSlant->"Italic"]}], ")"}], " ", "\[Equal]", " ", "\[BlackPawn]"}], 
+   TraditionalForm]],ExpressionUUID->"618fa524-1895-4935-9efa-b5a631e65fb9"],
+ " and capture ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     StyleBox["pos",
+      FontSlant->"Italic"], "2"], " ", "-", " ", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", " ", "2"}], "}"}]}], TraditionalForm]],ExpressionUUID->
+  "0f964750-8e69-4b87-9bcb-b093303c85f3"],
+ ".\nD. \[WhiteKnight] KnightMoves\n\t1. May move to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     StyleBox["pos",
+      FontSlant->"Italic"], "2"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    StyleBox["=",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    RowBox[{
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "1"], " ", "+", " ", 
+     RowBox[{"\[ForAll]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\[PlusMinus]", "1"}], ",", " ", 
+          RowBox[{"\[PlusMinus]", "2"}]}], "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\[PlusMinus]", "2"}], ",", " ", 
+          RowBox[{"\[PlusMinus]", "1"}]}], "}"}]}], "}"}]}]}]}], 
+   TraditionalForm]],ExpressionUUID->"daa529d3-3d27-4096-83ac-efd5bcd92c00"],
+ " if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "2"], ")"}], "\[Equal]", " ", 
+    RowBox[{"\[ForAll]", 
+     RowBox[{"{", 
+      RowBox[{
+      "\[BlackQueen]", ",", " ", "\[BlackRook]", ",", " ", "\[BlackBishop]", 
+       ",", " ", "\[BlackKnight]", ",", " ", "\[BlackPawn]", ",", " ", 
+       "\[EmptySquare]"}], "}"}]}]}], TraditionalForm]],ExpressionUUID->
+  "7fad23bd-c3df-423e-aaf1-d8fe97b66c1d"],
+ ".\nE. \[WhiteBishop] BishopMoves\n\t1. For ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox["dir",
+     FontSlant->"Italic"], "=", " ", 
+    RowBox[{"\[ForAll]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[PlusMinus]", "1"}], ",", " ", 
+       RowBox[{"\[PlusMinus]", "1"}]}], "}"}]}]}], TraditionalForm]],
+  ExpressionUUID->"62a067f3-bf81-41b3-91e2-0119a66b87b2"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"n", " ", "=", " ", 
+    RowBox[{"\[ForAll]", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "...", ",", " ", 
+       RowBox[{"8", "-", "1"}]}], "}"}]}]}], TraditionalForm]],
+  ExpressionUUID->"acf631bf-5895-4b5d-9777-6b429371bc28"],
+ ", may move to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox["pos",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    StyleBox["=",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    RowBox[{
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "0"], " ", "+", " ", 
+     RowBox[{"n", " ", "\[Cross]", 
+      StyleBox["dir",
+       FontSlant->"Italic"]}]}]}], TraditionalForm]],ExpressionUUID->
+  "d6fb3561-bfcd-4e74-b04e-9b5ef693c696"],
+ " if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     StyleBox["pos",
+      FontSlant->"Italic"], ")"}], "\[Equal]", " ", 
+    RowBox[{"\[ForAll]", 
+     RowBox[{"{", 
+      RowBox[{
+      "\[BlackQueen]", ",", " ", "\[BlackRook]", ",", " ", "\[BlackBishop]", 
+       ",", " ", "\[BlackKnight]", ",", " ", "\[BlackPawn]", ",", " ", 
+       "\[EmptySquare]"}], "}"}]}]}], TraditionalForm]],ExpressionUUID->
+  "4e307db5-605e-426b-a30c-bbf93dcdfa45"],
+ " and  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     RowBox[{
+      SubscriptBox[
+       StyleBox["pos",
+        FontSlant->"Italic"], "0"], 
+      StyleBox[" ",
+       FontSlant->"Italic"], 
+      StyleBox["+",
+       FontSlant->"Italic"], 
+      StyleBox[" ",
+       FontSlant->"Italic"], 
+      StyleBox[
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", " ", "...", ",", " ", 
+          RowBox[{"n", "-", "1"}]}], "}"}], "dir"}],
+       FontSlant->"Italic"]}], ")"}], " ", "\[Equal]", " ", 
+    "\[EmptySquare]"}], TraditionalForm]],ExpressionUUID->
+  "c1120485-0036-435a-b585-4b88964611d4"],
+ ".\nF. \[WhiteRook] RookMoves\n\t1. For ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox["dir",
+     FontSlant->"Italic"], "=", " ", 
+    RowBox[{"\[ForAll]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\[PlusMinus]", "1"}], ",", " ", "0"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", 
+         RowBox[{"\[PlusMinus]", "1"}]}], "}"}]}], "}"}]}]}], 
+   TraditionalForm]],ExpressionUUID->"9775c75b-43d4-43d7-a465-036d8f8f7889"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"n", " ", "=", " ", 
+    RowBox[{"\[ForAll]", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "...", ",", " ", 
+       RowBox[{"8", "-", "1"}]}], "}"}]}]}], TraditionalForm]],
+  ExpressionUUID->"c5c82a0d-3e9d-4f29-879b-5d4c8e986577"],
+ ", may move to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox["pos",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    StyleBox["=",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    RowBox[{
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "0"], " ", "+", " ", 
+     RowBox[{"n", " ", "\[Cross]", 
+      StyleBox["dir",
+       FontSlant->"Italic"]}]}]}], TraditionalForm]],ExpressionUUID->
+  "e27a531b-9776-4665-940e-ef0c6cac7341"],
+ " if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     StyleBox["pos",
+      FontSlant->"Italic"], ")"}], "\[Equal]", " ", 
+    RowBox[{"\[ForAll]", 
+     RowBox[{"{", 
+      RowBox[{
+      "\[BlackQueen]", ",", " ", "\[BlackRook]", ",", " ", "\[BlackBishop]", 
+       ",", " ", "\[BlackKnight]", ",", " ", "\[BlackPawn]", ",", " ", 
+       "\[EmptySquare]"}], "}"}]}]}], TraditionalForm]],ExpressionUUID->
+  "c737630a-c928-478f-895f-a81957315732"],
+ " and  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     RowBox[{
+      SubscriptBox[
+       StyleBox["pos",
+        FontSlant->"Italic"], "0"], 
+      StyleBox[" ",
+       FontSlant->"Italic"], 
+      StyleBox["+",
+       FontSlant->"Italic"], 
+      StyleBox[" ",
+       FontSlant->"Italic"], 
+      StyleBox[
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", " ", "...", ",", " ", 
+          RowBox[{"n", "-", "1"}]}], "}"}], "dir"}],
+       FontSlant->"Italic"]}], ")"}], " ", "\[Equal]", " ", 
+    "\[EmptySquare]"}], TraditionalForm]],ExpressionUUID->
+  "c89b9096-9d89-472c-a345-1c6506493a65"],
+ ".\nG. \[WhiteQueen] QueenMoves\n\t1. For ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox["dir",
+     FontSlant->"Italic"], "=", " ", 
+    RowBox[{"\[ForAll]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\[PlusMinus]", "1"}], ",", " ", "0"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", 
+         RowBox[{"\[PlusMinus]", "1"}]}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\[PlusMinus]", "1"}], ",", " ", 
+         RowBox[{"\[PlusMinus]", "1"}]}], "}"}]}], "}"}]}]}], 
+   TraditionalForm]],ExpressionUUID->"ab24c76a-7881-4a17-8079-fffde2e3da14"],
+ " and ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"n", " ", "=", " ", 
+    RowBox[{"\[ForAll]", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "...", ",", " ", 
+       RowBox[{"8", "-", "1"}]}], "}"}]}]}], TraditionalForm]],
+  ExpressionUUID->"128e6c2d-61cf-44a1-b318-e9cdaeed42fa"],
+ ", may move to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox["pos",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    StyleBox["=",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    RowBox[{
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "0"], " ", "+", " ", 
+     RowBox[{"n", " ", "\[Cross]", 
+      StyleBox["dir",
+       FontSlant->"Italic"]}]}]}], TraditionalForm]],ExpressionUUID->
+  "22fe3519-0f17-406b-b8c2-8034eb4960df"],
+ " if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     StyleBox["pos",
+      FontSlant->"Italic"], ")"}], "\[Equal]", " ", 
+    RowBox[{"\[ForAll]", 
+     RowBox[{"{", 
+      RowBox[{
+      "\[BlackQueen]", ",", " ", "\[BlackRook]", ",", " ", "\[BlackBishop]", 
+       ",", " ", "\[BlackKnight]", ",", " ", "\[BlackPawn]", ",", " ", 
+       "\[EmptySquare]"}], "}"}]}]}], TraditionalForm]],ExpressionUUID->
+  "989d681e-6ee3-4012-90a7-58617aec5a73"],
+ " and  ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     RowBox[{
+      SubscriptBox[
+       StyleBox["pos",
+        FontSlant->"Italic"], "0"], 
+      StyleBox[" ",
+       FontSlant->"Italic"], 
+      StyleBox["+",
+       FontSlant->"Italic"], 
+      StyleBox[" ",
+       FontSlant->"Italic"], 
+      StyleBox[
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"1", ",", " ", "...", ",", " ", 
+          RowBox[{"n", "-", "1"}]}], "}"}], "dir"}],
+       FontSlant->"Italic"]}], ")"}], " ", "\[Equal]", " ", 
+    "\[EmptySquare]"}], TraditionalForm]],ExpressionUUID->
+  "b21c061e-8757-4fb9-9bc1-21bd2afe1b49"],
+ ".\nH. \[WhiteKing] KingMoves\n\t1. For ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    StyleBox["dir",
+     FontSlant->"Italic"], "=", " ", 
+    RowBox[{"\[ForAll]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\[PlusMinus]", "1"}], ",", " ", "0"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", " ", 
+         RowBox[{"\[PlusMinus]", "1"}]}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"\[PlusMinus]", "1"}], ",", " ", 
+         RowBox[{"\[PlusMinus]", "1"}]}], "}"}]}], "}"}]}]}], 
+   TraditionalForm]],ExpressionUUID->"7b723092-3818-41d8-a378-027fc70dff3b"],
+ ", may move to ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox[
+     StyleBox["pos",
+      FontSlant->"Italic"], "2"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    StyleBox["=",
+     FontSlant->"Italic"], 
+    StyleBox[" ",
+     FontSlant->"Italic"], 
+    RowBox[{
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "1"], " ", "+", " ", 
+     StyleBox["dir",
+      FontSlant->"Italic"]}]}], TraditionalForm]],ExpressionUUID->
+  "256c6b13-c63a-4d66-a867-33dce6899052"],
+ " if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", 
+     SubscriptBox[
+      StyleBox["pos",
+       FontSlant->"Italic"], "2"], ")"}], "\[Equal]", " ", 
+    RowBox[{"\[ForAll]", 
+     RowBox[{"{", 
+      RowBox[{
+      "\[BlackQueen]", ",", " ", "\[BlackRook]", ",", " ", "\[BlackBishop]", 
+       ",", " ", "\[BlackKnight]", ",", " ", "\[BlackPawn]", ",", " ", 
+       "\[EmptySquare]"}], "}"}]}]}], TraditionalForm]],ExpressionUUID->
+  "7d8efe72-04e2-4b7d-a61d-4cf6bdd413f6"],
+ ". \n\t2. May ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"e1", " ", "\[Rule]", " ", "\[EmptySquare]"}], ",", " ", 
+     RowBox[{"h1", " ", "\[Rule]", " ", "\[EmptySquare]"}], ",", " ", 
+     RowBox[{"f1", " ", "\[Rule]", " ", "\[WhiteRook]"}], ",", " ", 
+     RowBox[{"g1", " ", "\[Rule]", " ", "\[WhiteKing]"}]}], "}"}], 
+   TraditionalForm]],ExpressionUUID->"2e431789-c3d9-4914-9840-13c7759b7d50"],
+ " if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     RowBox[{"f1", " ", "&"}], " ", "g1"}], " ", "\[Equal]", " ", 
+    "\[EmptySquare]"}], TraditionalForm]],ExpressionUUID->
+  "3c595738-6ea3-42c5-a255-1d31b912e754"],
+ " & ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", "e1", ")"}], " ", "\[NotEqual]", " ", "\[Dagger]"}], 
+   TraditionalForm]],ExpressionUUID->"73d06e6c-7678-4882-b56e-bb1845bb6c82"],
+ " & ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["S", "i"], "(", "e1", ")"}], " ", "\[Equal]", " ", 
+    "\[WhiteKing]"}], TraditionalForm]],ExpressionUUID->
+  "dde6f817-ba12-41fd-b94b-9f3ac6a28d31"],
+ " for all ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"i", " ", "<", " ", "t"}], TraditionalForm]],ExpressionUUID->
+  "faa31f38-7380-4447-bb4d-024aabb6c196"],
+ " & ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["S", "i"], "(", "h1", ")"}], " ", "\[Equal]", " ", 
+    "\[WhiteRook]"}], TraditionalForm]],ExpressionUUID->
+  "61a04c0b-dfa3-4341-bd80-32ae0f788ea1"],
+ " for all ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"i", " ", "<", " ", "t"}], TraditionalForm]],ExpressionUUID->
+  "d31c30e6-5a7c-4ec0-89a0-c6edd8586382"],
+ ".\n\t3. May ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"e1", " ", "\[Rule]", " ", "\[EmptySquare]"}], ",", " ", 
+     RowBox[{"a1", " ", "\[Rule]", " ", "\[EmptySquare]"}], ",", " ", 
+     RowBox[{"d1", " ", "\[Rule]", " ", "\[WhiteRook]"}], ",", " ", 
+     RowBox[{"c1", " ", "\[Rule]", " ", "\[WhiteKing]"}]}], "}"}], 
+   TraditionalForm]],ExpressionUUID->"828a3bf2-dd31-4b50-8df6-073789bd5ef7"],
+ " if ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"b1", ",", " ", "c1", ",", " ", 
+    RowBox[{"d1", " ", "\[Equal]", " ", "\[EmptySquare]"}]}], 
+   TraditionalForm]],ExpressionUUID->"f19700cf-6a53-4bfd-b1fc-1d7e43178799"],
+ " & ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"S", "(", "\"\<e1\>\"", ")"}], " ", "\[NotEqual]", " ", 
+    "\[Dagger]"}], TraditionalForm]],ExpressionUUID->
+  "a39af5ca-e0ce-4f77-9661-095597bd70be"],
+ " & ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["S", "i"], "(", "\"\<e1\>\"", ")"}], " ", "\[Equal]", " ", 
+    "\[WhiteKing]"}], TraditionalForm]],ExpressionUUID->
+  "487fef69-8ca7-43de-8b44-e3cc1a43b667"],
+ " for all ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"i", " ", "<", " ", "t"}], TraditionalForm]],ExpressionUUID->
+  "6fd1169e-5cd7-4133-9644-c3dce1dfba54"],
+ " & ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{
+     SubscriptBox["S", "i"], "(", "\"\<a1\>\"", ")"}], " ", "\[Equal]", " ", 
+    "\[WhiteRook]"}], TraditionalForm]],ExpressionUUID->
+  "62b211c2-4893-4184-9e9d-ac6a4568b8f7"],
+ " for all ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"i", " ", "<", " ", "t"}], TraditionalForm]],ExpressionUUID->
+  "2f5041af-737f-4b0b-8f77-c23371f49079"],
+ ".\n\nSimilarly for black. "
+}], "TemplateEditableContent",
+ ShowCellBracket->True,
+ CellMargins->{{65, 20}, {10, 10}},
+ CellChangeTimes->{{3.740286988839389*^9, 
+  3.740286989394745*^9}},ExpressionUUID->"7dd20c83-6d7c-4cdd-a65c-\
+21eb4519ce59"]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -17911,60 +18771,55 @@ ChessPackage"], None},
 e2e8541cd2b4"]
 }, Open  ]],
 
-Cell["Written Content / Lesson Plans", "Subsubsection",
- CellChangeTimes->{
-  3.736182124333714*^9},ExpressionUUID->"ba68b18e-0118-4694-9cc8-\
-e616df451654"],
-
-Cell["Conclusions in Detail", "Subsubsection",
- CellChangeTimes->{
-  3.736182152929455*^9},ExpressionUUID->"405e0fe7-2022-4d50-b275-\
-5f85c6659f37"],
-
-Cell["All Visualizations", "Subsubsection",
- CellChangeTimes->{{3.736182157207601*^9, 
-  3.736182158846121*^9}},ExpressionUUID->"aa59b7ca-7848-48f1-96cf-\
-6286c1fabb09"],
-
-Cell["Data Sources Links/References", "Subsubsection",
- CellChangeTimes->{
-  3.736182217183381*^9},ExpressionUUID->"8d03133e-d036-4673-985c-\
-415dd5ec88bb"],
-
-Cell["Future Directions", "Subsubsection",
- CellChangeTimes->{{3.7361822218287*^9, 
-  3.7361822234759083`*^9}},ExpressionUUID->"9afe7952-52cb-49e5-812a-\
-edf95df8c363"],
-
-Cell["Background Info Links/References", "Subsubsection",
- CellChangeTimes->{
-  3.736182238022826*^9},ExpressionUUID->"19b709dc-5a9b-4a0e-8d93-\
-1058844be4dd"],
-
 Cell[CellGroupData[{
 
 Cell["Keywords", "Subsubsection",
  CellChangeTimes->{
   3.73618224410275*^9},ExpressionUUID->"6668b03b-4180-4966-b673-b20f85cb5927"],
 
-Cell["Provide keywords as items", "Text",
- CellChangeTimes->{{3.70811356171093*^9, 3.7081135645971746`*^9}, {
-  3.7081136127408867`*^9, 
-  3.708113615106327*^9}},ExpressionUUID->"a5e5e177-980c-46c4-8f4b-\
-7804400a13ff"],
-
 Cell[CellGroupData[{
 
-Cell["< keyword 1 >", "Item",
+Cell["Chess", "Item",
  CellChangeTimes->{{3.708096350583043*^9, 3.7080963544862823`*^9}, {
-  3.708113540381196*^9, 
-  3.708113546129714*^9}},ExpressionUUID->"a0f68604-8bfc-4c6d-afb6-\
+  3.708113540381196*^9, 3.708113546129714*^9}, {3.7402870282970552`*^9, 
+  3.7402870301865253`*^9}},ExpressionUUID->"a0f68604-8bfc-4c6d-afb6-\
 b6a38b6de7d0"],
 
-Cell["< keyword 2 >", "Item",
- CellChangeTimes->{{3.708096350583043*^9, 
-  3.7080963563232718`*^9}},ExpressionUUID->"d4791c55-e7db-46a0-8162-\
-0eebcfa1df4d"]
+Cell["Antichess", "Item",
+ CellChangeTimes->{{3.708096350583043*^9, 3.7080963563232718`*^9}, {
+  3.740287032994485*^9, 
+  3.740287039110586*^9}},ExpressionUUID->"d4791c55-e7db-46a0-8162-\
+0eebcfa1df4d"],
+
+Cell["Atomic Chess", "Item",
+ CellChangeTimes->{{3.708096350583043*^9, 3.7080963563232718`*^9}, {
+  3.740287032994485*^9, 
+  3.740287045476706*^9}},ExpressionUUID->"890420bb-779e-42a1-92d7-\
+ddb281ebf80f"],
+
+Cell["Open-ended Chess", "Item",
+ CellChangeTimes->{{3.708096350583043*^9, 3.7080963563232718`*^9}, {
+  3.740287032994485*^9, 
+  3.740287054303752*^9}},ExpressionUUID->"d9d4c3a8-cb25-40aa-8c11-\
+bea356755b28"],
+
+Cell["Chess Algorithm", "Item",
+ CellChangeTimes->{{3.708096350583043*^9, 3.7080963563232718`*^9}, {
+  3.740287032994485*^9, 
+  3.740287064583947*^9}},ExpressionUUID->"9c00f4fe-ba73-43b3-9c9c-\
+8b1b771a87a2"],
+
+Cell["Chess in Mathematica", "Item",
+ CellChangeTimes->{{3.708096350583043*^9, 3.7080963563232718`*^9}, {
+  3.740287032994485*^9, 
+  3.740287080157886*^9}},ExpressionUUID->"5389303b-adf8-488d-ad93-\
+de751f063da2"],
+
+Cell["Mathematical representation of chess rules", "Item",
+ CellChangeTimes->{{3.708096350583043*^9, 3.7080963563232718`*^9}, {
+  3.740287032994485*^9, 
+  3.740287091876952*^9}},ExpressionUUID->"11c577cc-5748-46a0-80fd-\
+b3558240c475"]
 }, Open  ]]
 }, Open  ]],
 
@@ -18069,12 +18924,12 @@ StyleDefinitions->Notebook[{
 (* Internal cache information *)
 (*CellTagsOutline
 CellTagsIndex->{
- "LastModified"->{
-  Cell[400, 13, 227, 5, 53, "TemplateInstructions",ExpressionUUID->"e8a4bb79-028e-4bb1-bc34-f1e5f7437985",
-   CellTags->"LastModified"]},
  "AuthorInfo"->{
   Cell[652, 22, 218, 5, 68, "TemplateSectionHeaders",ExpressionUUID->"47541fce-e5a1-4793-b8e1-e1340b437ca6",
    CellTags->"AuthorInfo"]},
+ "LastModified"->{
+  Cell[400, 13, 227, 5, 53, "TemplateInstructions",ExpressionUUID->"e8a4bb79-028e-4bb1-bc34-f1e5f7437985",
+   CellTags->"LastModified"]},
  "PosterContent"->{
   Cell[1978, 62, 234, 5, 68, "TemplateSectionHeaders",ExpressionUUID->"e3c11918-b62c-4e4f-bc19-a4aa32cba637",
    CellTags->"PosterContent"]},
@@ -18088,11 +18943,11 @@ CellTagsIndex->{
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"LastModified", 1025079, 18071},
- {"AuthorInfo", 1025234, 18074},
- {"PosterContent", 1025392, 18077},
- {"PresentationContent", 1025560, 18080},
- {"ProjectNotes", 1025731, 18083}
+ {"AuthorInfo", 1054870, 18926},
+ {"LastModified", 1055027, 18929},
+ {"PosterContent", 1055185, 18932},
+ {"PresentationContent", 1055353, 18935},
+ {"ProjectNotes", 1055524, 18938}
  }
 *)
 (*NotebookFileOutline
@@ -18150,27 +19005,29 @@ Cell[1014358, 17788, 3119, 76, 33, "TemplateDivider",ExpressionUUID->"01c4256e-4
 Cell[CellGroupData[{
 Cell[1017526, 17870, 231, 5, 68, "TemplateSectionHeaders",ExpressionUUID->"d0702cda-4649-4987-a5e2-607be4aa4f6e",
  CellTags->"ProjectNotes"],
-Cell[1017760, 17877, 151, 3, 45, "Subsubsection",ExpressionUUID->"c1b785be-a60a-40fe-b1f1-2d83590b38cd"],
 Cell[CellGroupData[{
-Cell[1017936, 17884, 131, 3, 37, "Subsubsection",ExpressionUUID->"6ebeefbd-4857-42fb-a308-27aaa279c47f"],
-Cell[1018070, 17889, 302, 7, 35, "Text",ExpressionUUID->"14e3781a-a52e-4548-bf74-c0aba980dad1"],
-Cell[1018375, 17898, 515, 12, 32, "Item",ExpressionUUID->"d164cdc3-c8cc-4779-b201-e2e8541cd2b4"]
+Cell[1017782, 17879, 151, 3, 45, "Subsubsection",ExpressionUUID->"c1b785be-a60a-40fe-b1f1-2d83590b38cd"],
+Cell[1017936, 17884, 7470, 120, 422, "TemplateEditableContent",ExpressionUUID->"4de88359-81f4-4572-85f7-f3c9cfa79e27"],
+Cell[1025409, 18006, 22308, 733, 787, "TemplateEditableContent",ExpressionUUID->"7dd20c83-6d7c-4cdd-a65c-21eb4519ce59"]
 }, Open  ]],
-Cell[1018905, 17913, 157, 3, 45, "Subsubsection",ExpressionUUID->"ba68b18e-0118-4694-9cc8-e616df451654"],
-Cell[1019065, 17918, 148, 3, 37, "Subsubsection",ExpressionUUID->"405e0fe7-2022-4d50-b275-5f85c6659f37"],
-Cell[1019216, 17923, 169, 3, 37, "Subsubsection",ExpressionUUID->"aa59b7ca-7848-48f1-96cf-6286c1fabb09"],
-Cell[1019388, 17928, 156, 3, 37, "Subsubsection",ExpressionUUID->"8d03133e-d036-4673-985c-415dd5ec88bb"],
-Cell[1019547, 17933, 168, 3, 37, "Subsubsection",ExpressionUUID->"9afe7952-52cb-49e5-812a-edf95df8c363"],
-Cell[1019718, 17938, 159, 3, 37, "Subsubsection",ExpressionUUID->"19b709dc-5a9b-4a0e-8d93-1058844be4dd"],
 Cell[CellGroupData[{
-Cell[1019902, 17945, 132, 2, 37, "Subsubsection",ExpressionUUID->"6668b03b-4180-4966-b673-b20f85cb5927"],
-Cell[1020037, 17949, 219, 4, 35, "Text",ExpressionUUID->"a5e5e177-980c-46c4-8f4b-7804400a13ff"],
+Cell[1047754, 18744, 131, 3, 45, "Subsubsection",ExpressionUUID->"6ebeefbd-4857-42fb-a308-27aaa279c47f"],
+Cell[1047888, 18749, 302, 7, 35, "Text",ExpressionUUID->"14e3781a-a52e-4548-bf74-c0aba980dad1"],
+Cell[1048193, 18758, 515, 12, 32, "Item",ExpressionUUID->"d164cdc3-c8cc-4779-b201-e2e8541cd2b4"]
+}, Open  ]],
 Cell[CellGroupData[{
-Cell[1020281, 17957, 206, 4, 32, "Item",ExpressionUUID->"a0f68604-8bfc-4c6d-afb6-b6a38b6de7d0"],
-Cell[1020490, 17963, 157, 3, 32, "Item",ExpressionUUID->"d4791c55-e7db-46a0-8162-0eebcfa1df4d"]
+Cell[1048745, 18775, 132, 2, 45, "Subsubsection",ExpressionUUID->"6668b03b-4180-4966-b673-b20f85cb5927"],
+Cell[CellGroupData[{
+Cell[1048902, 18781, 248, 4, 32, "Item",ExpressionUUID->"a0f68604-8bfc-4c6d-afb6-b6a38b6de7d0"],
+Cell[1049153, 18787, 202, 4, 32, "Item",ExpressionUUID->"d4791c55-e7db-46a0-8162-0eebcfa1df4d"],
+Cell[1049358, 18793, 205, 4, 32, "Item",ExpressionUUID->"890420bb-779e-42a1-92d7-ddb281ebf80f"],
+Cell[1049566, 18799, 209, 4, 32, "Item",ExpressionUUID->"d9d4c3a8-cb25-40aa-8c11-bea356755b28"],
+Cell[1049778, 18805, 208, 4, 32, "Item",ExpressionUUID->"9c00f4fe-ba73-43b3-9c9c-8b1b771a87a2"],
+Cell[1049989, 18811, 213, 4, 32, "Item",ExpressionUUID->"5389303b-adf8-488d-ad93-de751f063da2"],
+Cell[1050205, 18817, 235, 4, 32, "Item",ExpressionUUID->"11c577cc-5748-46a0-80fd-b3558240c475"]
 }, Open  ]]
 }, Open  ]],
-Cell[1020674, 17970, 172, 3, 45, "Subsubsection",ExpressionUUID->"5f589531-3a9b-47cd-a487-fcf2f80aa83f"]
+Cell[1050467, 18825, 172, 3, 45, "Subsubsection",ExpressionUUID->"5f589531-3a9b-47cd-a487-fcf2f80aa83f"]
 }, Open  ]]
 }
 ]
